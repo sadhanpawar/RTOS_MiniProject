@@ -1,0 +1,381 @@
+******************************************************************************
+                  TI ARM Linker Unix v20.2.7                   
+******************************************************************************
+>> Linked Mon Oct  9 17:00:13 2023
+
+OUTPUT FILE NAME:   <RTOS_MiniProject.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000032e5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000033b3  0003cc4d  R  X
+  SRAM                  20000000   00008000  0000023b  00007dc5  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000033b8   000033b8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000030d2   000030d2    r-x .text
+  0000333e    0000333e    0000005d   0000005d    r-- .const
+  000033a0    000033a0    00000018   00000018    r-- .cinit
+20000000    20000000    0000023b   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    0000003b   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000030d2     
+                  0000026c    00000fc4     mem.obj (.text)
+                  00001230    00000c84     commandline.obj (.text)
+                  00001eb4    00000808     gpio.obj (.text)
+                  000026bc    000003c0     Faults.obj (.text)
+                  00002a7c    00000384     rtos.obj (.text)
+                  00002e00    00000164     uart0.obj (.text)
+                  00002f64    00000130     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00003094    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00003130    0000008c     asm.obj (.text)
+                  000031bc    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  00003236    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000329e    00000002     --HOLE-- [fill = 0]
+                  000032a0    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  000032e4    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00003318    00000010     clock.obj (.text)
+                  00003328    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00003336    00000004                                   : pre_init.c.obj (.text:_system_pre_init)
+                  0000333a    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    0000333e    0000005d     
+                  0000333e    0000005d     commandline.obj (.const:$P$T0$1)
+
+.cinit     0    000033a0    00000018     
+                  000033a0    00000008     (.cinit..data.load) [load image, compression = lzss]
+                  000033a8    00000008     (__TI_handler_table)
+                  000033b0    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000200    0000003b     UNINITIALIZED
+                  20000200    00000038     mem.obj (.data:mem_CB)
+                  20000238    00000003     commandline.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    ./
+       mem.obj                        4036    0         56     
+       commandline.obj                3204    93        3      
+       gpio.obj                       2056    0         0      
+       Faults.obj                     960     0         0      
+       tm4c123gh6pm_startup_ccs.obj   304     620       0      
+       rtos.obj                       900     0         0      
+       uart0.obj                      356     0         0      
+       asm.obj                        140     0         0      
+       clock.obj                      16      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         11972   713       59     
+                                                               
+    /home/sadhanpawar/ti/ccs1240/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156     0         0      
+       memset_t2.asm.obj              122     0         0      
+       copy_decompress_lzss.c.obj     104     0         0      
+       autoinit.c.obj                 68      0         0      
+       boot_cortex_m.c.obj            52      0         0      
+       copy_decompress_none.c.obj     14      0         0      
+       exit.c.obj                     4       0         0      
+       pre_init.c.obj                 4       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         524     0         0      
+                                                               
+       Stack:                         0       0         512    
+       Linker Generated:              0       24        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   12496   737       571    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000033b0 records: 1, size/record: 8, table size: 8
+	.data: load addr=000033a0, load size=00000008 bytes, run addr=20000200, run size=0000003b bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000033a8 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00002903  BusFaultIntHandler            
+0000333b  C$$EXIT                       
+000026bd  MpuFaultIntHandler            
+0000291b  PendSvIntHandler              
+00002f65  ResetISR                      
+00002911  UsageFaultIntHandler          
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+000033b0  __TI_CINIT_Base               
+000033b8  __TI_CINIT_Limit              
+000033a8  __TI_Handler_Table_Base       
+000033b0  __TI_Handler_Table_Limit      
+000032a1  __TI_auto_init_nobinit_nopinit
+00003237  __TI_decompress_lzss          
+00003329  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+000031bd  __aeabi_memclr                
+000031bd  __aeabi_memclr4               
+000031bd  __aeabi_memclr8               
+00003095  __aeabi_memcpy                
+00003095  __aeabi_memcpy4               
+00003095  __aeabi_memcpy8               
+000031bf  __aeabi_memset                
+000031bf  __aeabi_memset4               
+000031bf  __aeabi_memset8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+000032e5  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00003337  _system_pre_init              
+0000333b  abort                         
+00000a81  allowFlashAccess              
+00000a9d  allowPeripheralAccess         
+ffffffff  binit                         
+00002ca1  check_interrupts              
+00002509  clearPinInterrupt             
+00001c5f  convertIntToString            
+000024e5  disablePinInterrupt           
+0000221d  disablePinPulldown            
+000021d5  disablePinPullup              
+00001f71  disablePort                   
+000024c1  enablePinInterrupt            
+000021f9  enablePinPulldown             
+000021a7  enablePinPullup               
+00001eb5  enablePort                    
+0000066b  free                          
+00000000  g_pfnVectors                  
+0000048d  getBlockSize                  
+00003137  getMsp                        
+00002bbb  getPbs                        
+00002577  getPinValue                   
+0000262d  getPortValue                  
+00003131  getPsp                        
+00000c51  getSrdRegion                  
+00002f01  getcUart0                     
+00001231  initHw                        
+00002a9d  initPbs_leds                  
+00003319  initSystemClockTo40Mhz        
+00002e01  initUart0                     
+000014f5  ipcs                          
+00001d23  itohex                        
+00002f15  kbhitUart0                    
+000014ff  kill                          
+00001263  main                          
+00000281  malloc_from_heap              
+00000529  memErrorCheck                 
+20000200  mem_CB                        
+000008ed  mem_chk                       
+0000026d  mem_init                      
+00003095  memcpy                        
+000031c5  memset                        
+00000837  mpuOff                        
+00000823  mpuOn                         
+00000ec5  mpuchecks                     
+000015f3  pidof                         
+0000156f  pkill                         
+00001589  preempt                       
+000012cd  processCommands               
+000014e1  ps                            
+00002eb9  putcUart0                     
+00002ed5  putsUart0                     
+000010b5  random1536_fun                
+00001079  random_fun                    
+00002a7d  rtosInit                      
+00001615  run                           
+000015c3  sched                         
+000020db  selectPinAnalogInput          
+0000208d  selectPinDigitalInput         
+000023f7  selectPinInterruptBothEdges   
+000023a7  selectPinInterruptFallingEdge 
+0000244d  selectPinInterruptHighLevel   
+00002487  selectPinInterruptLowLevel    
+00002357  selectPinInterruptRisingEdge  
+0000203f  selectPinOpenDrainOutput      
+00001ff1  selectPinPushPullOutput       
+00003165  setAspMsp                     
+0000314b  setAspPsp                     
+000031bb  setPendSv                     
+00002245  setPinAuxFunction             
+0000212b  setPinCommitControl           
+0000252d  setPinValue                   
+000025b5  setPortValue                  
+0000313d  setPsp                        
+00000b5f  setSramAccessWindow           
+0000319d  setTmplP                      
+00003183  setTmplUnP                    
+00002e75  setUart0BaudRate              
+00000ac1  setupSramAccess               
+00001c37  stringlen                     
+00002b39  test_pb_leds                  
+00002553  togglePinValue                
+00001def  zeroString                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  mem_init                      
+00000281  malloc_from_heap              
+0000048d  getBlockSize                  
+00000529  memErrorCheck                 
+0000066b  free                          
+00000823  mpuOn                         
+00000837  mpuOff                        
+000008ed  mem_chk                       
+00000a81  allowFlashAccess              
+00000a9d  allowPeripheralAccess         
+00000ac1  setupSramAccess               
+00000b5f  setSramAccessWindow           
+00000c51  getSrdRegion                  
+00000ec5  mpuchecks                     
+00001079  random_fun                    
+000010b5  random1536_fun                
+00001231  initHw                        
+00001263  main                          
+000012cd  processCommands               
+000014e1  ps                            
+000014f5  ipcs                          
+000014ff  kill                          
+0000156f  pkill                         
+00001589  preempt                       
+000015c3  sched                         
+000015f3  pidof                         
+00001615  run                           
+00001c37  stringlen                     
+00001c5f  convertIntToString            
+00001d23  itohex                        
+00001def  zeroString                    
+00001eb5  enablePort                    
+00001f71  disablePort                   
+00001ff1  selectPinPushPullOutput       
+0000203f  selectPinOpenDrainOutput      
+0000208d  selectPinDigitalInput         
+000020db  selectPinAnalogInput          
+0000212b  setPinCommitControl           
+000021a7  enablePinPullup               
+000021d5  disablePinPullup              
+000021f9  enablePinPulldown             
+0000221d  disablePinPulldown            
+00002245  setPinAuxFunction             
+00002357  selectPinInterruptRisingEdge  
+000023a7  selectPinInterruptFallingEdge 
+000023f7  selectPinInterruptBothEdges   
+0000244d  selectPinInterruptHighLevel   
+00002487  selectPinInterruptLowLevel    
+000024c1  enablePinInterrupt            
+000024e5  disablePinInterrupt           
+00002509  clearPinInterrupt             
+0000252d  setPinValue                   
+00002553  togglePinValue                
+00002577  getPinValue                   
+000025b5  setPortValue                  
+0000262d  getPortValue                  
+000026bd  MpuFaultIntHandler            
+00002903  BusFaultIntHandler            
+00002911  UsageFaultIntHandler          
+0000291b  PendSvIntHandler              
+00002a7d  rtosInit                      
+00002a9d  initPbs_leds                  
+00002b39  test_pb_leds                  
+00002bbb  getPbs                        
+00002ca1  check_interrupts              
+00002e01  initUart0                     
+00002e75  setUart0BaudRate              
+00002eb9  putcUart0                     
+00002ed5  putsUart0                     
+00002f01  getcUart0                     
+00002f15  kbhitUart0                    
+00002f65  ResetISR                      
+00003095  __aeabi_memcpy                
+00003095  __aeabi_memcpy4               
+00003095  __aeabi_memcpy8               
+00003095  memcpy                        
+00003131  getPsp                        
+00003137  getMsp                        
+0000313d  setPsp                        
+0000314b  setAspPsp                     
+00003165  setAspMsp                     
+00003183  setTmplUnP                    
+0000319d  setTmplP                      
+000031bb  setPendSv                     
+000031bd  __aeabi_memclr                
+000031bd  __aeabi_memclr4               
+000031bd  __aeabi_memclr8               
+000031bf  __aeabi_memset                
+000031bf  __aeabi_memset4               
+000031bf  __aeabi_memset8               
+000031c5  memset                        
+00003237  __TI_decompress_lzss          
+000032a1  __TI_auto_init_nobinit_nopinit
+000032e5  _c_int00_noargs               
+00003319  initSystemClockTo40Mhz        
+00003329  __TI_decompress_none          
+00003337  _system_pre_init              
+0000333b  C$$EXIT                       
+0000333b  abort                         
+000033a8  __TI_Handler_Table_Base       
+000033b0  __TI_CINIT_Base               
+000033b0  __TI_Handler_Table_Limit      
+000033b8  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000200  mem_CB                        
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[120 symbols]
